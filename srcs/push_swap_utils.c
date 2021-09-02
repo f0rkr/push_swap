@@ -6,7 +6,7 @@
 /*   By: mashad <mashad@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/31 12:19:45 by mashad            #+#    #+#             */
-/*   Updated: 2021/08/29 08:32:16 by mashad           ###   ########.fr       */
+/*   Updated: 2021/08/31 08:59:53 by mashad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int			check_duplicate(int len, char **int_array)
 		j_count = 1;
 		while (j_count < len)
 		{
-			if (s_count != j_count && ft_strncmp(int_array[s_count], int_array[j_count], ft_strlen(int_array[s_count])) == 0)
+			if (s_count != j_count && strcmp(int_array[s_count], int_array[j_count]) == 0)
 				return (ERROR);
 			j_count++;
 		}

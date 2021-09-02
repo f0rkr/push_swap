@@ -6,7 +6,7 @@
 /*   By: mashad <mashad@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/31 11:49:15 by mashad            #+#    #+#             */
-/*   Updated: 2021/08/29 08:57:37 by mashad           ###   ########.fr       */
+/*   Updated: 2021/08/31 08:46:08 by mashad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,28 +34,22 @@ int		print_status(int fd, char *string)
 t_stack	*fill_stack(int length, char **int_array)
 {
 	t_stack *a;
-	t_stack *b;
 	int			i;
 
-	i = 1;
+	i = 0;
 	a = (t_stack *)malloc(sizeof(t_stack) * 1);
 	if (a == NULL)
 		return (NULL);
-	b = a;
-	while (i < length)
+	a->int_stack = (int *)malloc(sizeof(int) * length - 1);
+	if (a->int_stack == NULL)
+		return (NULL);
+	a->stack_size = length - 1;
+	while (i < a->stack_size)
 	{
-		a->n = ft_atoi(int_array[i]);
-		if (i + 1 != length)
-		{
-			a->next = (t_stack *)malloc(sizeof(t_stack) * 1);
-			if (a->next == NULL)
-				return (NULL);
-			a = a->next;
-		}
+		a->int_stack[i] = ft_atoi(int_array[i + 1]);
 		i++;
 	}
-	a->next = NULL;
-	return (b);
+	return (a);
 }
 
 /*
@@ -67,8 +61,10 @@ t_stack	*fill_stack(int length, char **int_array)
 int		main(int argc, char **argv)
 {
 	t_stack	*stack_a;
+	int i;
 	// t_stack	*stack_b;
 
+	i = 0;
 	if (argc <= 1)
 		return (GOOD);
 	if (is_valid_arg(argc, argv) != GOOD)
@@ -76,11 +72,8 @@ int		main(int argc, char **argv)
 	stack_a = fill_stack(argc, argv);
 	if (stack_a == NULL)
 		return (print_status(STDERR, "Error\n"));
-	while (stack_a)
-	{
-		printf("%d ", stack_a->n);
-		stack_a = stack_a->next;
-	}
+	while (i < stack_a->stack_size)
+		printf("%d ", stack_a->int_stack[i++]);
 	// if (sorting_stack(a) != GOOD)
 	// 	return (print_status(STDERR, "Error\n"));
 	return (0);

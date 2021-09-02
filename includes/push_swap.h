@@ -6,7 +6,7 @@
 /*   By: mashad <mashad@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/31 11:50:04 by mashad            #+#    #+#             */
-/*   Updated: 2021/08/29 08:31:35 by mashad           ###   ########.fr       */
+/*   Updated: 2021/08/31 08:59:28 by mashad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,16 @@
 # include <stdlib.h>
 # include <libft.h>
 # include <stdio.h>
+# include <string.h>
 
 /*
 ** DECLARATION OF STACK
 */
 typedef struct 	s_stack
 {
-	int				n;
-	struct s_stack	*next;
+	int 	*int_stack;
+	int 	stack_size;
+	int 	top;
 }				t_stack;
 
 int	is_valid_arg(int len, char **int_arry);
