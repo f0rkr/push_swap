@@ -6,13 +6,13 @@
 /*   By: mashad <mashad@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 17:45:02 by mashad            #+#    #+#             */
-/*   Updated: 2021/08/29 08:30:40 by mashad           ###   ########.fr       */
+/*   Updated: 2021/09/07 09:46:54 by mashad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "libft.h"
 
-int	ft_check(unsigned long pt, int s)
+long long	ft_check(unsigned long pt, int s)
 {
 	long long n;
 
@@ -24,7 +24,7 @@ int	ft_check(unsigned long pt, int s)
 	return (pt * s);
 }
 
-int	ft_atoi(const char *str)
+long long	ft_atoi(const char *str)
 {
 	unsigned long long int	j;
 	unsigned long long int	t_p;

@@ -6,7 +6,7 @@
 /*   By: mashad <mashad@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/29 09:21:23 by mashad            #+#    #+#             */
-/*   Updated: 2021/08/29 09:49:26 by mashad           ###   ########.fr       */
+/*   Updated: 2021/09/04 08:18:14 by mashad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,24 @@
   ** Take the first element at the top of b and put it at the top of a. Do
   ** nothing if b is empty
 */
-void  push(t_stack *a, t_stack *b)
+void  pa(t_stack *a, t_stack *b)
 {
-  t_stack *b_last;
-  t_stack *bb_last;
+  printf("pa\n");
+  if (b->top == b->stack_size - 1)
+    return ;
+  b->top++;
+  b->int_stack[b->top] = a->int_stack[a->top];
+  a->top--;
+  return ;
+}
 
-  if (b == NULL)
+void  pb(t_stack *b, t_stack *a)
+{
+  printf("pb\n");
+  if (a->top == a->stack_size - 1)
     return ;
-  a = ft_lstlast(a);
-  b_last = ft_lstlast(b);
-  bb_last = b;
-  while (bb_last->next->next)
-    bb_last = bb_last->next;
-  a = (t_stack *)malloc(sizeof(t_stack) * 1);
-  if (a == NULL)
-    return ;
-  a->n = b_last->n;
-  a->next = NULL;
-  free(b_last);
-  bb_last->next = NULL;
+  a->top++;
+  a->int_stack[a->top] = b->int_stack[b->top];
+  b->top--;
   return ;
 }

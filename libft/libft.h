@@ -6,7 +6,7 @@
 /*   By: mashad <mashad@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 13:32:37 by mashad            #+#    #+#             */
-/*   Updated: 2021/08/29 08:29:05 by mashad           ###   ########.fr       */
+/*   Updated: 2021/09/07 09:46:11 by mashad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 
 # define EOL 			'\0'
-# define OVERFLOW -1
+# define OVERFLOW -2147483649
 
 void				*ft_calloc(size_t count, size_t size);
 int					ft_tolower(int c);
@@ -28,7 +28,7 @@ int					ft_isascii(int c);
 int					ft_isalnum(int c);
 int					ft_isdigit(int c);
 int					ft_isalpha(int c);
-int					ft_atoi(const char *str);
+long long		ft_atoi(const char *str);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t				ft_strlen(const char *s);
 char				*ft_strchr(const char *s, int c);

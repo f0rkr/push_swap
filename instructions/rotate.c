@@ -6,7 +6,7 @@
 /*   By: mashad <mashad@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/29 09:41:07 by mashad            #+#    #+#             */
-/*   Updated: 2021/08/29 19:56:07 by mashad           ###   ########.fr       */
+/*   Updated: 2021/09/07 17:26:19 by mashad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,40 @@
   ** Rotate a - shift up all elements of stack a by 1.
   ** The first element becomes the last one.
 */
-void rotate(t_stack a)
+void ra(t_stack *a)
 {
-  t_stack a_rotated;
-  
-  if (a == NULL || a->next == NULL)
-    return ;
-  while ()
+  int counter;
 
+  printf("ra\n");
+  counter = a->top;
+  if (is_empty(a) == TRUE)
+    return ;
+  while (counter >= 1)
+  {
+    a->int_stack[counter] += a->int_stack[counter - 1];
+    a->int_stack[counter - 1] = a->int_stack[counter] - a->int_stack[counter - 1];
+    a->int_stack[counter] = a->int_stack[counter] - a->int_stack[counter - 1];
+    counter--;
+  }
+  return ;
+}
+
+void rb(t_stack *a)
+{
+  int counter;
+
+  printf("rb\n");
+  counter = a->top;
+  if (is_empty(a) == TRUE)
+    return ;
+  while (counter >= 1)
+  {
+    a->int_stack[counter] += a->int_stack[counter - 1];
+    a->int_stack[counter - 1] = a->int_stack[counter] - a->int_stack[counter - 1];
+    a->int_stack[counter] = a->int_stack[counter] - a->int_stack[counter - 1];
+    counter--;
+  }
+  return ;
 }
 
 /*
@@ -31,7 +57,8 @@ void rotate(t_stack a)
 */
 void rr(t_stack *a, t_stack *b)
 {
-  rotate(a);
-  rotate(b);
+  printf("rr\n");
+  ra(a);
+  rb(b);
   return ;
 }

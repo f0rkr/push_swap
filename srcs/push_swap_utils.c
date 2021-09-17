@@ -6,7 +6,7 @@
 /*   By: mashad <mashad@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/31 12:19:45 by mashad            #+#    #+#             */
-/*   Updated: 2021/08/31 08:59:53 by mashad           ###   ########.fr       */
+/*   Updated: 2021/09/07 08:52:14 by mashad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,14 @@ int			check_duplicate(int len, char **int_array)
 
 int			check_max_int(int len, char **int_array)
 {
+	long long number;
 	int	s_count;
 
 	s_count = 1;
 	while (s_count < len)
 	{
-		if (ft_atoi(int_array[s_count]) == OVERFLOW)
+		number = ft_atoi(int_array[s_count]);
+		if (number == OVERFLOW)
 			return (ERROR);
 		s_count++;
 	}
